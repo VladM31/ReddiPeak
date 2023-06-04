@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="authorItemPostStyle">
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:textSize">46sp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="bottomTextItemPostStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/authorItemTextView</item>
+    </style>
+
+    <style name="timeAgoItemPostStyle" parent="bottomTextItemPostStyle">
+        <item name="android:layout_marginStart">200dp</item>
+    </style>
+
+    <style name="imageItemPostStyle">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_marginStart">420dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="srcCompat">?attr/listChoiceBackgroundIndicator</item>
+    </style>
+</resources>
