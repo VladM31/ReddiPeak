@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import app.android.peak.reddit.R
 import app.android.peak.reddit.models.Post
 import app.android.peak.reddit.utils.GlideHiddenRequestListener
+import app.android.peak.reddit.utils.getExtensionFromUrl
 import app.android.peak.reddit.utils.isUrl
 import com.bumptech.glide.Glide
 
 class RedditPostAdapter(
+    private val forbiddenPrefix: String,
+    private val photoExpansionResolutions : Array<String>,
     private val onClick: (String) -> Unit
 ) :
     PagingDataAdapter<Post, RedditPostAdapter.ViewHolder>(POST_COMPARATOR) {
@@ -31,12 +34,11 @@ class RedditPostAdapter(
             "Comments: ${post.numComments}".also { numCommentsView.text = it }
             "${post.hoursAgo} hours ago".also { timeAgoView.text = it }
 
-            if (!isUrl(post.thumbnail)) {
+            if (isNotValidThumbnail(post.thumbnail)) {
                 imageView.visibility = View.GONE
                 return
             }
             imageView.visibility = View.VISIBLE
-
 
             Glide.with(itemView)
                 .load(post.thumbnail)
@@ -44,10 +46,10 @@ class RedditPostAdapter(
                 .placeholder(R.drawable.photo_drawable)
                 .into(imageView)
 
+            val showUrl = if(getExtensionFromUrl(post.url!!) in photoExpansionResolutions) post.url else post.thumbnail
+
             imageView.setOnClickListener {
-                if(!post.isVideo){
-                    onClick(post.url!!)
-                }
+                onClick(showUrl!!)
             }
         }
     }
@@ -62,6 +64,12 @@ class RedditPostAdapter(
         post?.let { holder.bind(it) }
     }
 
+    private fun isNotValidThumbnail(thumbnail : String?): Boolean{
+        if(thumbnail == null){
+            return true
+        }
+        return !isUrl(thumbnail) || thumbnail.startsWith(forbiddenPrefix)
+    }
 
     companion object {
         private val POST_COMPARATOR = object : DiffUtil.ItemCallback<Post>() {
