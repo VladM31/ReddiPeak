@@ -10,7 +10,10 @@ data class Post(
     val createdUtc: Long,
     val thumbnail: String?,
     @SerializedName("num_comments")
-    val numComments: Int
+    val numComments: Int,
+    val url : String?,
+    @SerializedName("is_video")
+    val isVideo : Boolean
 ) {
     val hoursAgo: Long
         get() = hoursSince(createdUtc)
