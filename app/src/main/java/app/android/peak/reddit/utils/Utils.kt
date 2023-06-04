@@ -1,8 +1,8 @@
 package app.android.peak.reddit.utils
 
 import okhttp3.HttpUrl
-import java.util.*
-import java.util.concurrent.TimeUnit
+import java.io.File
+import java.net.URI
 import java.net.URL
 
 
@@ -29,5 +29,15 @@ fun isUrl(str: String?): Boolean {
         true
     } catch (e: Exception) {
         false
+    }
+}
+
+fun getExtensionFromUrl(url: String): String? {
+    return try {
+        val file = File(URI(url).path)
+        file.extension.ifEmpty { null }
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
     }
 }

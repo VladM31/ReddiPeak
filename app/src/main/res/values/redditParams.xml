@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheme">https</string>
+    <string name="host">www.reddit.com</string>
+    <string name="pathSegment">top.json</string>
+    <string name="forbiddenUrlPrefix">https://external-preview.redd.it/</string>
+
+    <string-array name="photoExpansionResolution">
+        <item>jpg</item>
+        <item>png</item>
+        <item>gif</item>
+    </string-array>
+</resources>
