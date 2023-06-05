@@ -32,6 +32,10 @@ android {
 }
 
 dependencies {
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1"
+
     implementation group: 'com.github.bumptech.glide', name: 'glide', version: '4.15.1'
     implementation("androidx.cardview:cardview:1.0.0")
 
