@@ -28,6 +28,7 @@ class RedditPostAdapter(
         private val authorView: TextView = itemView.findViewById(R.id.authorItemTextView)
         private val numCommentsView: TextView = itemView.findViewById(R.id.numCommentsTextView)
         private val timeAgoView: TextView = itemView.findViewById(R.id.timeAgoTextView)
+        private val largeIcon: ImageView = itemView.findViewById(R.id.toLargeIcon)
 
         fun bind(post: Post) {
             authorView.text = post.author
@@ -36,6 +37,7 @@ class RedditPostAdapter(
 
             if (isNotValidThumbnail(post.thumbnail)) {
                 imageView.visibility = View.GONE
+                largeIcon.visibility = View.GONE
                 return
             }
             imageView.visibility = View.VISIBLE
@@ -46,10 +48,21 @@ class RedditPostAdapter(
                 .placeholder(R.drawable.photo_drawable)
                 .into(imageView)
 
-            val showUrl = if(getExtensionFromUrl(post.url!!) in photoExpansionResolutions) post.url else post.thumbnail
+            val showUrl = if(getExtensionFromUrl(post.url!!) in photoExpansionResolutions) post.url else ""
+
+            if(showUrl.isBlank()){
+                imageView.setOnClickListener{}
+                largeIcon.visibility = View.GONE
+                return
+            }
+            largeIcon.visibility = View.VISIBLE
+
+            largeIcon.setOnClickListener {
+                onClick(showUrl)
+            }
 
             imageView.setOnClickListener {
-                onClick(showUrl!!)
+                onClick(showUrl)
             }
         }
     }

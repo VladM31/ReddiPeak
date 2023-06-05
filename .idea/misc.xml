@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/drawable/blurred_edge.xml" value="0.19010416666666666" />
         <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36875" />
+        <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/drawable/image_highlight.xml" value="0.19010416666666666" />
         <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/layout/activity_image_viewer.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/layout/activity_main.xml" value="0.2749094202898551" />
-        <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/layout/post_item_activity.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/layout/post_item_activity.xml" value="0.5" />
         <entry key="..\:/AndroidProjects/RedditPeak/app/src/main/res/menu/menu_image_viewer.xml" value="0.18854166666666666" />
       </map>
     </option>
