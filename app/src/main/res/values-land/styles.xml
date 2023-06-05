@@ -34,4 +34,10 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="srcCompat">?attr/listChoiceBackgroundIndicator</item>
     </style>
+
+    <style name="toLargeIconBtn">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginStart">585dp</item>
+    </style>
 </resources>
