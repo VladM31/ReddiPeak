@@ -26,4 +26,10 @@
             android:id="@+id/thumbnailImageView"
             style="@style/imageItemPostStyle"
             />
+
+    <ImageView
+            android:id="@+id/toLargeIcon"
+            android:src="@drawable/to_large_icon_1024"
+            style="@style/toLargeIconBtn"
+    />
 </androidx.cardview.widget.CardView>
